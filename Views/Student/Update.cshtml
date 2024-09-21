@@ -1,0 +1,43 @@
+﻿@model Student
+@{
+    Layout = "layout2";
+}
+
+
+    <div class="container mt-5">
+        <h2 class="mb-4">Update Student</h2>
+         <form asp-action="update" asp-controller="student" method="post">
+            <div class="form-group" hidden >
+                <label asp-for="Std_Id">Student ID</label>
+                <input asp-for="Std_Id" class="form-control"  placeholder="Enter Student ID" >
+            </div>
+            <div class="form-group">
+                <label asp-for="Std_Name">Student Name</label>
+                <input asp-for="Std_Name" class="form-control" placeholder="Enter Student Name">
+                <span asp-validation-for="Std_Name"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Age">Student Age</label>
+                <input asp-for="Age" class="form-control" placeholder="Enter Student Age">
+                <span asp-validation-for="Age"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Std_Email">Student Email</label>
+                <input asp-for="Std_Email" class="form-control" placeholder="Enter Student Email">
+                <span asp-validation-for="Std_Email"></span>
+            </div>
+            <div class="form-group">
+                <label for="deptId">Student Dept Name</label>
+                <select class="form-control" id="deptId" name="Dept_Id" >
+                    <!-- Example static options -->
+                    @foreach (var item in ViewBag.Depts)
+                    {
+                        <option value="@item.Dept_Id" >@item.Dept_Name</option>
+                    }
+                    <!-- Add more options dynamically if needed -->
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary mt-1">Update</button>
+        </form>
+       
+    </div>

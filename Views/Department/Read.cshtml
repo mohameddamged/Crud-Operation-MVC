@@ -1,0 +1,30 @@
+﻿@model Department
+@{
+    Layout = "layout2";
+}
+
+    <div class="container mt-5">
+        <!-- Centering the table -->
+        <div class="table-responsive">
+            <table class="table table-hover table-bordered text-center">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Dept ID</th>
+                        <th>Dept Name</th>
+                        <th>Dept Capacity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>@Model.Dept_Id</td>
+                        <td>@Model.Dept_Name</td>
+                        <td>@Model.Dept_Capacity</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="text-center mb-4">
+            <a href="/department/Lst" class="btn btn-dark">Back To List</a>
+        </div>
+    </div>
+

@@ -1,0 +1,33 @@
+﻿@model Student
+@{
+    Layout = "layout2";
+}
+
+    <div class="container mt-5">
+        <!-- Centering the table -->
+        <div class="table-responsive">
+            <table class="table table-hover table-bordered text-center">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>StdID</th>
+                        <th>StdName</th>
+                        <th>StdAge</th>
+                        <th>StdEmail</th>
+                        <th>DeptID</th>
+                    </tr>
+                </thead>
+                <tbody>  
+                            <tr>
+                                <td>@Model.Std_Id</td>
+                                <td>@Model.Std_Name</td>
+                                <td>@Model.Age</td>
+                                <td>@Model.Std_Email</td>
+                                <td>@Model.Dept_Id</td>
+                            </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="text-center mb-4">
+            <a href="/student/Lst" class="btn btn-dark">Back To List</a>
+        </div>
+    </div>

@@ -1,0 +1,50 @@
+﻿@model List<Department>
+@{
+    Layout = "layout2";
+}
+
+    <div class="container mt-5">
+        <!-- Centering the action buttons -->
+        <div class="text-center mb-4">
+            <a href="/department/Create" class="btn btn-dark mx-2">Create Department</a>
+        </div>
+
+        <!-- Centering the table -->
+        <div class="table-responsive">
+            <table class="table table-hover table-bordered text-center">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>DeptId</th>
+                        <th>DeptName</th>
+                        <th>DeptCapacity</th>
+                        <th>Operation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.Count == 0)
+                    {
+                        <tr>
+                            <td colspan="4" class="text-center">NO Departments</td>
+                        </tr>
+                    }
+                    else
+                    {
+                        foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Dept_Id</td>
+                                <td>@item.Dept_Name</td>
+                                <td>@item.Dept_Capacity</td>
+                                <td>
+                                    <a asp-controller="department" asp-action="Read" asp-route-deptid="@item.Dept_Id" class="btn btn-info">Read</a>
+                                    <a asp-controller="department" asp-action="update" asp-route-deptid="@item.Dept_Id" class="btn btn-info">Update</a>
+                                    <a asp-controller="department" asp-action="delete" asp-route-deptid="@item.Dept_Id" class="btn btn-danger" onclick="return confirm('are you sure')">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+

@@ -1,0 +1,38 @@
+﻿@model Course
+@{
+    Layout = "layout2";
+}
+
+
+<div class="container mt-5">
+    <h2 class="mb-4">Create Course</h2>
+    <form asp-action="create" asp-controller="course" method="post">
+        <div class="form-group">
+            <label asp-for="Course_Id">Course ID</label>
+            <input asp-for="Course_Id" class="form-control" placeholder="Enter Course ID">
+            <span asp-validation-for="Course_Id"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Course_Name">Course Name</label>
+            <input asp-for="Course_Name" class="form-control" placeholder="Enter Course Name">
+            <span asp-validation-for="Course_Name"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Course_duration">Course duration</label>
+            <input asp-for="Course_duration" class="form-control" placeholder="Enter Course duration">
+            <span asp-validation-for="Course_duration"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Dept_Id">Course Dept Name</label>
+            <select class="form-control" asp-for="Dept_Id">
+                <!-- Example static options -->
+                @foreach (var item in ViewBag.Depts)
+                {
+                    <option value="@item.Dept_Id">@item.Dept_Name</option>
+                }
+                <!-- Add more options dynamically if needed -->
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Add</button>
+    </form>
+</div>
